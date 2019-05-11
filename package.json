@@ -1,0 +1,23 @@
+{
+  "name": "fe-technology",
+  "version": "1.0.0",
+  "description": "前端技术文章",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/yjh30/fe-technology.git"
+  },
+  "keywords": [
+    "fe",
+    "technology"
+  ],
+  "author": "yangjunhua",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yjh30/fe-technology/issues"
+  },
+  "homepage": "https://github.com/yjh30/fe-technology#readme"
+}
