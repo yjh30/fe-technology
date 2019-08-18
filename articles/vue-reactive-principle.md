@@ -67,7 +67,7 @@ class Observer {
   walk(obj) {
     const keys = Object.keys(obj)
     for (let i = 0; i < keys.length; i++) {
-      defineReactive(obj, keys[i],)
+      defineReactive(obj, keys[i])
     }
   }
 }
@@ -157,7 +157,7 @@ export default {
 ```
 从上面示例代码看，订阅数据更新的场景有：
 | 场景 | 详解
-| 	---   |   ---  |
+| ---------------- | -------- |
 | 1. 模版插值 |		new Watcher(vm, updateComponent)数据发生变化，更新组件
 | 2. vm.$watch |  监听单个数据做一些逻辑操作
 | 3. computed使用场景 |  计算属性
