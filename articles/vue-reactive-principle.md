@@ -51,6 +51,7 @@ const updateComponent = () => {
 }
 ```
 8. callHook(vm, 'mount')
+
 在以上发生的行为当中，第3步与第7步两者相辅相成；也是我们最需要关心的，弄清楚这两者，vue响应式原理就基本掌握了
 
 
