@@ -1,4 +1,13 @@
 ## 小程序嵌h5页面交互逻辑（示例：小程序页面跳实名h5再返回小程序页面）
+
+### 认识小程序webview
+> 小程序web-view组件虽然会铺满整个页面，但可以理解为它类似小程序页面的一个浮层，它并不会往路由历史记录堆栈中添加记录；微信小程序web-viwe承载的web网页向小程序 postMessage 时，会在特定时机（小程序后退、组件销毁、分享）触发并收到消息。e.detail = { data }，data是多次 postMessage 的参数组成的数组
+
+1. [微信小程序webview](https://developers.weixin.qq.com/miniprogram/dev/component/web-view.html)
+2. [支付宝小程序webview](https://docs.alipay.com/mini/component/web-view)
+3. [网友小程序webview开发记录](https://www.jianshu.com/p/da8d5ce5c8a7)
+
+
 ### 场景
 - 场景1：页面1 -> 去实名(实名成功) -> 返回页面1(数据状态更新)
 - 场景2：页面1 -> 中间页 -> 去实名(实名成功) -> 返回页面1(数据状态更新)
