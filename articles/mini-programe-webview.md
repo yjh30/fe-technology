@@ -13,9 +13,9 @@
 - 场景2：页面1 -> 页面2 -> 去实名(实名成功) -> 返回页面1(数据状态更新)
 
 ### 解决方案
-- 场景1：页面1 -> wx.navigateTo(带参数webviewUrl) -> h5实名承载页(只有一个webview标签) -> h5页面实名成功后执行wx.miniProgram.navigateBack() -> 页面1更新数据状态
+- 场景1：页面1 -> wx.navigateTo(带参数webviewUrl) -> h5实名承载页(只有一个webview标签) -> h5页面实名成功后执行wx.miniProgram.navigateBack()退出/关闭webview承载页 -> 页面1更新数据状态
 
-- 场景2：页面1 -> wx.navigateTo -> 页面2 -> wx.redirectTo(带参数webviewUrl，同时页面2路由不在堆栈中) -> h5实名承载页(只有一个webview标签) -> h5页面实名成功后执行wx.miniProgram.navigateBack() -> 页面1更新数据状态
+- 场景2：页面1 -> wx.navigateTo -> 页面2 -> wx.redirectTo(带参数webviewUrl，同时页面2路由不在堆栈中) -> h5实名承载页(只有一个webview标签) -> h5页面实名成功后执行wx.miniProgram.navigateBack()退出/关闭webview承载页 -> 页面1更新数据状态
 
 ### webview承载页
 ```html
