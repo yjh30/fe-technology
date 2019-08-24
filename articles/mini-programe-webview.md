@@ -17,7 +17,7 @@ Page({
   data: {
     webviewUrl: ''
   },
-  onShow(query) {
+  onLoad(query) {
     const { url } = query
     if (url) {
       this.setData({
