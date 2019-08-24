@@ -61,7 +61,7 @@ Page({
 
     const webUrl = await this.getWebUrl()
     wx.navigateTo({
-      url: '/pages/webview/index?'
+      url: `/pages/webview/index?url=${webUrl}`
     })
   },
   getWebUrl() {
