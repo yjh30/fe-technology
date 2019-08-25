@@ -1,0 +1,6 @@
+我们再来回顾下实例化Vue应用的最重要的两点
+
+observe(vm._data)
+// vm.$mount()
+const componentUpdateWatcher = new Watcher(vm, updateComponent)
+updateComponent在更新渲染组件时，会访问1或多个数据模版插值，当访问数据时，将通过getter拦截器把componentUpdateWatcher作为订阅者添加到多个依赖中，每当其中一个数据有更新，将执行setter函数，对应的依赖将会通知订阅者componentUpdateWatcher执行update，即执行updateComponent；至此Vue数据响应式目的已达到，再来看官网的这张图片就很好理解了
