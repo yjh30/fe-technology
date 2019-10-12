@@ -5,3 +5,4 @@
 - [深入Vue响应式原理](./articles/vue-reactive-principle.md)
 - [小程序嵌h5页面交互逻辑实践](./articles/mini-programe-webview.md)
 - [Keynote如何高亮显示代码](./articles/keynote-show-code.md)
+- [基于Nuxt.js项目的服务端性能优化与错误检测，容错处理](./articles/nuxtjs.md)
