@@ -6,3 +6,4 @@
 - [小程序嵌h5页面交互逻辑实践](./articles/mini-programe-webview.md)
 - [Keynote如何高亮显示代码](./articles/keynote-show-code.md)
 - [基于Nuxt.js项目的服务端性能优化与错误检测，容错处理](./articles/nuxtjs.md)
+- [基于类的Vue组件开发分析](./articles/vue-class-component.md)
