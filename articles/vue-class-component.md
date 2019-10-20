@@ -103,6 +103,7 @@ export default class Page extends mixins(Actions) {
 }
 ```
 处理上述代码段中的props选型，装饰器Component将props中的成员通过混入(mixins)转换为Vue组件data选型处理
+
 6. 最后返回一个通过`Vue.extend`构造的Vue子组件
 
 ### 装饰器模块 mixins
