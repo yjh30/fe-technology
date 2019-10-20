@@ -104,7 +104,7 @@ function mixins() {
 ```
 
 ### 装饰器模块 createDecorator
-> [JS装饰者模式及其应用](https://github.com/yjh30/js-decorator-and-apply)，createDecorator字面意思就是创建装饰器，一般用来修饰class类的成员，通过createDecorator创建的装饰者将保持在装饰函数Component.__decorators__属性队列中，伴随装饰函数Component一起运行，使用见如下示例：
+> [JS装饰者模式及其应用](https://github.com/yjh30/js-decorator-and-apply)，createDecorator字面意思就是创建装饰器，一般用来修饰class类的成员，通过createDecorator创建的装饰者将保存在装饰函数Component.__decorators__属性队列中，伴随装饰函数Component一起运行，使用见如下示例：
 ```js
 // decorators.js
 import { createDecorator } from 'vue-class-component'
