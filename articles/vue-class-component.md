@@ -78,7 +78,7 @@ export default class Page extends mixins(Actions) {
   }
 }
 ```
-<script>
+</script>
 
 ## 二、[vue-class-component](https://github.com/vuejs/vue-class-component)模块分析
 > Vue官方基于类的Vue组件开发就是使用[vue-class-component](https://github.com/vuejs/vue-class-component)模块的，下面具体分析该模块
