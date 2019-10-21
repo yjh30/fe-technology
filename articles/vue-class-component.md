@@ -6,45 +6,61 @@
 > 对于一个页面组件来说，一般除了抽离页面组件的公共组件以外，还应该将页面组件的 模版，数据，方法与主组件模块分离，便于项目代码可读及维护
 
 ```html
-<!-- 组件模版（可以单独创建一个文件导入）-->
+<!-- 组件模版 index.html -->
 <div @click="printName">您好，{{aliasName}}先生！</div>
 ```
 
-```jsx
-import Vue from 'vue';
-import Component, { mixins } from 'vue-class-component';
+```ts
+// Model.ts
 
 /**
- * 页面组件数据模型（可以单独创建一个文件导入）
+ * 页面组件数据模型
  */
+import Vue from 'vue';
+import Component from 'vue-class-component';
+
 @Component
-class Model extends Vue {
+export default class Model extends Vue {
   public aliasName: string = '重华';
   // ... 其他数据模型定义
 }
+```
+
+```ts
+// Actions.ts
 
 /**
- * 页面组件方法（可以单独创建一个文件导入）
+ * 页面组件方法
  */
-// tslint:disable-next-line:max-classes-per-file
+import Vue from 'vue';
+import Component, { mixins } from 'vue-class-component';
+import Model from './Model';
+
 @Component
-class Actions extends mixins(Model) {
+export default class Actions extends mixins(Model) {
   public printName(): void {
     window.console.log(this.aliasName);
   }
   // ... 其他方法定义
 }
+```
+
+```ts
+// Page.ts
 
 /**
  * 页面组件逻辑
  */
+import Vue from 'vue';
+import Component, { mixins } from 'vue-class-component';
+import Actions from './Actions';
+
 Component.registerHooks([
   'beforeRouteEnter',
   'beforeRouteLeave',
   // 'beforeRouteUpdate' // for vue-router 2.2+
 ])
 
-// tslint:disable-next-line:max-classes-per-file
 @Component({
   // 所有的组件选项都可以放在这里
 })
@@ -66,7 +82,25 @@ export default class Page extends mixins(Actions) {
 
 ### 装饰器模块 Component
 > 具体使用见示例，主要职能是装饰class类
-1. 处理类hooks成员，以下hooks成员将转换为Vue组件hooks
+1. 装饰器Component参数对象，如果装饰器Component传递了一个参数，那么该参数作为ComponentOptions，所有的组件选项都可以放在那里
+```js
+@Component({
+  // 所有的组件选项都可以放在这里
+  props: {
+    name: {
+      type: String,
+      default: '杨君华',
+    }
+  }
+})
+export default class Page extends Vue {
+  mounted() {
+    // this.name // 你可以访问this.name了
+  }
+}
+```
+
+2. 处理类hooks成员，以下hooks成员将转换为Vue组件hooks
 ```js
 const $internalHooks = [
   'data',
@@ -85,26 +119,11 @@ const $internalHooks = [
   'serverPrefetch' // 2.6
 ];
 ```
-2. 处理类的方法，将函数成员转换成Vue组件的方法methods
-3. 处理类的 拥有存储器(getter/setter)属性的成员，将拥有存储器属性的成员转换为Vue组件computed选项处理
-4. 处理类的 值不为undefined的数据属性成员，将值不为undefined的成员通过混入(mixins)转换为Vue组件data选项处理；实现逻辑很有意思，因为数据属性成员是类的实例对象属性，因此在内部通过实例化Component组件类，通过实例对象获取Component组件类定义的数据属性成员，然后再通过混入(mixins)转换为要返回构造的Vue组件data选项处理
-5. 
-```js
-@Component({
-  props: {
-    name: {
-      type: String,
-      default: '杨君华',
-    }
-  }
-})
-export default class Page extends mixins(Actions) {
-  // ...
-}
-```
-处理上述代码段中的props选项，装饰器Component将props中的成员通过混入(mixins)转换为Vue组件data选项处理；实现逻辑跟第4步相关，内部将props的成员代理proxy到第4步过程中的Component组件实例上，然后通过Object.keys遍历实例，将类的数据属性成员及props中的成员一起混入(mixins)转换为Vue组件data选项处理
-
-6. 最后返回一个通过`Vue.extend`构造的Vue子组件
+3. 处理类的方法，将函数成员转换成Vue组件的方法methods
+4. 处理类的 拥有存储器(getter/setter)属性的成员，将拥有存储器属性的成员转换为Vue组件computed选项处理
+. 处理类的 值不为undefined的数据属性成员，将值不为undefined的成员通过混入(mixins)转换为Vue组件data选项处理；实现逻辑很有意思，因为数据属性成员是类的实例对象属性，因此在内部通过实例化Component组件类，通过实例对象获取Component组件类定义的数据属性成员，然后再通过混入(mixins)转换为要返回构造的Vue组件data选项处理
+<br>
+5. 最后返回一个通过`Vue.extend`构造的Vue子组件
 
 ### 装饰器模块 mixins
 > mixins给我们提供了一个混入组合的功能，具体使用见最佳实践示例，代码虽然很简单，然而在处理业务非常复杂的页面组件时却给我们提供了代码模块分离的机会，源码如下：
@@ -129,6 +148,9 @@ export const NoCache = createDecorator((options, key) => {
   // and update for the options object affect the component
   options.computed[key].cache = false
 })
+```
+
+```js
 import { NoCache } from './decorators'
 
 @Component
