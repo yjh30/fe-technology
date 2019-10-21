@@ -120,10 +120,12 @@ const $internalHooks = [
 ];
 ```
 3. 处理类的方法，将函数成员转换成Vue组件的方法methods
+<br><br>
 4. 处理类的 拥有存储器(getter/setter)属性的成员，将拥有存储器属性的成员转换为Vue组件computed选项处理
-. 处理类的 值不为undefined的数据属性成员，将值不为undefined的成员通过混入(mixins)转换为Vue组件data选项处理；实现逻辑很有意思，因为数据属性成员是类的实例对象属性，因此在内部通过实例化Component组件类，通过实例对象获取Component组件类定义的数据属性成员，然后再通过混入(mixins)转换为要返回构造的Vue组件data选项处理
-<br>
-5. 最后返回一个通过`Vue.extend`构造的Vue子组件
+<br><br>
+5. 处理类的 值不为undefined的数据属性成员，将值不为undefined的成员通过混入(mixins)转换为Vue组件data选项处理；实现逻辑很有意思，因为数据属性成员是类的实例对象属性，因此在内部通过实例化Component组件类，通过实例对象获取Component组件类定义的数据属性成员，然后再通过混入(mixins)转换为要返回构造的Vue组件data选项处理
+<br><br>
+6. 最后返回一个通过`Vue.extend`构造的Vue子组件
 
 ### 装饰器模块 mixins
 > mixins给我们提供了一个混入组合的功能，具体使用见最佳实践示例，代码虽然很简单，然而在处理业务非常复杂的页面组件时却给我们提供了代码模块分离的机会，源码如下：
