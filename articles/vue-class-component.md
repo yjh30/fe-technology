@@ -1,4 +1,4 @@
-# 基于类的Vue组件开发分析
+# 浅谈基于类的Vue组件开发
 - [基于类的 Vue 组件开发文档](https://cn.vuejs.org/v2/guide/typescript.html#基于类的-Vue-组件)  
 - [Vue支持JSX语法文档](https://cn.vuejs.org/v2/guide/render-function.html#JSX)
 
