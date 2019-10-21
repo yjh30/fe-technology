@@ -86,8 +86,8 @@ const $internalHooks = [
 ];
 ```
 2. 处理类的方法，将函数成员转换成Vue组件的方法methods
-3. 处理类的 值不为undefined的数据属性成员，将值不为undefined的成员通过混入(mixins)转换为Vue组件data选型处理
-4. 处理类的 拥有存储器(getter/setter)属性的成员，将拥有存储器属性的成员转换为Vue组件computed选型处理
+3. 处理类的 拥有存储器(getter/setter)属性的成员，将拥有存储器属性的成员转换为Vue组件computed选项处理
+4. 处理类的 值不为undefined的数据属性成员，将值不为undefined的成员通过混入(mixins)转换为Vue组件data选项处理；实现逻辑很有意思，因为数据属性成员是类的实例对象属性，因此在内部通过实例化Component组件类，通过实例对象获取Component组件类定义的数据属性成员，然后再通过混入(mixins)转换为要返回构造的Vue组件data选项处理
 5. 
 ```js
 @Component({
@@ -102,7 +102,7 @@ export default class Page extends mixins(Actions) {
   // ...
 }
 ```
-处理上述代码段中的props选型，装饰器Component将props中的成员通过混入(mixins)转换为Vue组件data选型处理
+处理上述代码段中的props选项，装饰器Component将props中的成员通过混入(mixins)转换为Vue组件data选项处理；实现逻辑跟第4步相关，内部将props的成员代理proxy到第4步过程中的Component组件实例上，然后通过Object.keys遍历实例，将类的数据属性成员及props中的成员一起混入(mixins)转换为Vue组件data选项处理
 
 6. 最后返回一个通过`Vue.extend`构造的Vue子组件
 
