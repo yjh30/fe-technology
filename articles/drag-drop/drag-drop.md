@@ -22,6 +22,7 @@
 - 在safari浏览器12.1.1版本中测试发现，setDragImage 第一个参数img必须是在文档dom树中才能显示img的实际尺寸大小
 
 ### 3、只有监听dragover事件行为并且在dragover事件监听器中阻止默认，才会触发执行drop事件监听器
+<br>
 
 ### 4、firefox浏览器拖放完成后会打开一个新窗口
 ```js
@@ -42,7 +43,7 @@ document.body.addEventListener('drop', event => {
 上述业务场景解决思路正常情况下是没有问题，有些特殊场景会影响drop事件监听器中event.offsetX，event.offsetY的值，如果影响了那么新生成元素的位置跟拖拽元素在放置区时的位置就不一致，给用户造成不好的体验
 
 ### 2、什么情况下会影响drop事件监听器中event.offsetX 与 event.offsetY的值
-> 测试中发现，使用了setDragImage在如下几点场景中部分浏览器会受影响，如果未使用setDragImage就不会影响drop事件监听器event.offsetX 与 event.offsetY的值
+> 测试中发现，使用了setDragImage在如下几点场景中部分浏览器会受影响，如果未使用setDragImage就不会影响drop事件监听器中event.offsetX 与 event.offsetY的值
 
 #### 场景1：win10系统默认系统设置 -> 缩放与布局为125%(非100%)，一般是指高屏电脑笔记本(非mac)场景下，下面是各个浏览器的具体表现：
   - chrome浏览器：window.devicePixelRatio为1.25，很诡异，受影响，个人觉得无规律可循，脑壳痛...
@@ -77,7 +78,7 @@ function dropEventListener(event) {
 }
 ```
 
-#### 场景2：mac系统下按cmd+缩放浏览器(缩放为非100)场景下，所有主流浏览器表现都是一致的，代码如下：
+#### 场景2：mac系统下按cmd+缩放浏览器(缩放为非100)场景下，所有主流浏览器表现都是一致的，解决问题代码如下：
 ```js
 if (macSystem) {
   const scale = window.innerWidth / window.outerWidth
