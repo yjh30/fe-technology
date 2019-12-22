@@ -1,4 +1,4 @@
-# HTML 拖放（Drag and Drop）入坑总结篇
+# HTML 拖放（Drag and Drop）入坑实战总结篇
 
 ## 一、拖放基础步骤
 关于HTML 拖放api 见 [MDN文档](https://developer.mozilla.org/zh-CN/docs/Web/API/HTML_Drag_and_Drop_API)，这里不做介绍，用一张图总结下拖放的基础步骤，如下：
