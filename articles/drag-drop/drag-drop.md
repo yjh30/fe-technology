@@ -44,7 +44,7 @@ document.body.addEventListener('drop', event => {
 ### 2、什么情况下会影响drop事件监听器中event.offsetX 与 event.offsetY的值
 > 测试中发现，使用了setDragImage在如下几点场景中部分浏览器会受影响，如果未使用setDragImage就不会影响drop事件监听器event.offsetX 与 event.offsetY的值
 
-- 场景1：win10系统默认系统设置 -> 缩放与布局为125%(非100%)，一般是指高屏电脑笔记本(非mac)场景下，下面是各个浏览器的具体表现：
+#### 场景1：win10系统默认系统设置 -> 缩放与布局为125%(非100%)，一般是指高屏电脑笔记本(非mac)场景下，下面是各个浏览器的具体表现：
   - chrome浏览器：window.devicePixelRatio为1.25，很诡异，受影响，个人觉得无规律可循，脑壳痛...
   - firefox：window.devicePixelRatio为1.25，很意外，居然不受影响
   - ie浏览器：不支持setDragImage不受影响，注意ie10不支持window.devicePixelRatio
@@ -77,7 +77,7 @@ function dropEventListener(event) {
 }
 ```
 
-- 场景2：mac系统下按cmd+缩放浏览器(缩放为非100)场景下，所有主流浏览器表现都是一致的，代码如下：
+#### 场景2：mac系统下按cmd+缩放浏览器(缩放为非100)场景下，所有主流浏览器表现都是一致的，代码如下：
 ```js
 if (macSystem) {
   const scale = window.innerWidth / window.outerWidth
@@ -86,6 +86,6 @@ if (macSystem) {
 }
 ```
 
-- 场景3：拖拽元素时鼠标指针坐落在上一次新生成元素上，event.target不是放置区元素（新生成的元素是放置区元素的子元素）
+#### 场景3：拖拽元素时鼠标指针坐落在上一次新生成元素上，event.target不是放置区元素（新生成的元素是放置区元素的子元素）
   - 解决方法1：监听新生成元素的drop事件，根据其offsetX,offsetY,offsetLeft,offsetTop与dragstart事件监听器中获取的event.offsetX ，event.offsetTop计算解决，这种办法代价太大，以及考虑到场景1，2的问题太过复杂，暂不考虑
   - 解决方法2：从拖拽开始dragstart，到拖拽结束dragend期间，设置上一次(以及之前)新生成元素的css属性pointer-events为none，在dragend事件监听器中将它们的css属性pointer-events设置auto
