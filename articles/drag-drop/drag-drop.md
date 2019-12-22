@@ -8,7 +8,7 @@
 ## 二、浏览器兼容性入坑梳理
 > 根据上述拖放基础步骤可以完成一个完整的拖放操作，但是在实际的开发中坑非常多，梳理如下：
 
-1. event.dataTransfer.getData兼容性问题
+### 1、event.dataTransfer.getData兼容性问题
 
 在ie10，ie11，edge浏览器中，event.dataTransfer.getData('text')才能获取到drag传输过来的数据，因此在dragstart事件监听器中，setData第一个参数只能设置text；标准的数据MIME 类型有如下：
 - text/plain
@@ -17,13 +17,13 @@
 
 为了实现兼容setData，getData第一个参数必须为text，其他主流浏览器也都支持
 
-2. event.dataTransfer.setDragImage 的兼容性问题
+### 2、event.dataTransfer.setDragImage 的兼容性问题
 - ie10, ie11, edge 不支持 setDragImage
 - 在safari浏览器12.1.1版本中测试发现，setDragImage 第一个参数img必须是在文档dom树中才能显示img的实际尺寸大小
 
-3. 只有监听dragover事件行为并且在dragover事件监听器中阻止默认，才会触发执行drop事件监听器
+### 3、只有监听dragover事件行为并且在dragover事件监听器中阻止默认，才会触发执行drop事件监听器
 
-4. firefox浏览器拖放完成后会打开一个新窗口
+### 4、firefox浏览器拖放完成后会打开一个新窗口
 ```js
 // 解决方法代码如下，注意：body元素的drop事件监听器不能被其子孙后代元素阻止冒泡
 document.body.addEventListener('drop', event => {
@@ -36,8 +36,8 @@ document.body.addEventListener('drop', event => {
 ## 三、拖动元素如何精确定位到放置区(drop)元素上
 
 ### 1、业务场景
-- 1、业务场景描述：拖动元素到放置区，生成另外一个dom元素，如何让生成的元素跟拖放在放置区时的位置(left, top)保持一直
-- 2、业务场景解决思路：将在drop事件监听器与dragstart事件监听器中获取的event.offsetX ，event.offsetTop分别相减，得到新生成元素在放置区元素上的left,top值
+- 业务场景描述：拖动元素到放置区，生成另外一个dom元素，如何让生成的元素跟拖放在放置区时的位置(left, top)保持一直
+- 业务场景解决思路：将在drop事件监听器与dragstart事件监听器中获取的event.offsetX ，event.offsetTop分别相减，得到新生成元素在放置区元素上的left,top值
 
 上述业务场景解决思路正常情况下是没有问题，有些特殊场景会影响drop事件监听器中event.offsetX，event.offsetY的值，如果影响了那么新生成元素的位置跟拖拽元素在放置区时的位置就不一致，给用户造成不好的体验
 
