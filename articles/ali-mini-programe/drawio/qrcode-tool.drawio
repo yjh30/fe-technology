@@ -1,0 +1,111 @@
+<mxfile host="da67a15c-97a0-4a79-b8bf-2ea13791127f" modified="2020-09-13T15:49:35.126Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.48.2 Chrome/78.0.3904.130 Electron/7.3.2 Safari/537.36" etag="RR7cxuEcQe352kGaLVer" version="13.1.3">
+    <diagram id="6hGFLwfOUW9BJ-s0fimq" name="Page-1">
+        <mxGraphModel dx="968" dy="695" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="web打码工具测试" style="swimlane;html=1;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;startSize=20;horizontal=0;horizontalStack=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="190" width="711.5" height="330" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="打码工具" style="swimlane;html=1;startSize=20;" parent="2" vertex="1">
+                    <mxGeometry x="20" width="160" height="330" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="3" source="11" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="80" y="280" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="3" source="9" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="80" y="220" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="3" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="80" y="120" as="sourcePoint"/>
+                        <mxPoint x="80" y="160" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="9" value="页面参数" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="3" vertex="1">
+                    <mxGeometry x="50" y="160" width="60" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="3" source="19" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="80" y="100" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="49" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="3" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="120" y="299" as="sourcePoint"/>
+                        <mxPoint x="370" y="299" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="13" value="生成测试二维码" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="3" vertex="1">
+                    <mxGeometry x="30" y="280" width="100" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="服务端接口环境" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="3" vertex="1">
+                    <mxGeometry x="30" y="40" width="100" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="小程序启动页面" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="3" vertex="1">
+                    <mxGeometry x="30" y="100" width="100" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="小程序全局参数" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="3" vertex="1">
+                    <mxGeometry x="30" y="220" width="100" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="DEMO小程序" style="swimlane;html=1;startSize=20;" parent="2" vertex="1">
+                    <mxGeometry x="180" width="160" height="330" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="模拟跳公司小程序场景" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="4" vertex="1">
+                    <mxGeometry x="10" y="95" width="140" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="41" value="模拟三方小程序跳插件" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="4" vertex="1">
+                    <mxGeometry x="10" y="205" width="140" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="35" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="2" source="29" target="31" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="379" y="105" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="40" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="2" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="472.5" y="156" as="sourcePoint"/>
+                        <mxPoint x="572.5" y="156" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="501.5" y="156"/>
+                            <mxPoint x="501.5" y="156"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="43" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.001;entryY=0.493;entryDx=0;entryDy=0;entryPerimeter=0;" parent="2" source="41" target="37" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="601.5" y="215" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="5" value="小程序" style="swimlane;html=1;startSize=20;" parent="2" vertex="1">
+                    <mxGeometry x="340" width="181.5" height="330" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" value="&lt;font style=&quot;font-size: 10px&quot;&gt;三方小程序入口功能页面&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="5" vertex="1">
+                    <mxGeometry x="51.5" y="95" width="130" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="38" value="集成插件页" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="5" vertex="1">
+                    <mxGeometry x="52.5" y="145" width="80" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="插件" style="swimlane;html=1;startSize=20;" parent="2" vertex="1">
+                    <mxGeometry x="521.5" width="190" height="330" as="geometry"/>
+                </mxCell>
+                <mxCell id="36" value="公司小程序功能页" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="28" vertex="1">
+                    <mxGeometry x="51.5" y="145" width="110" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="37" value="三方小程序功能页" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="28" vertex="1">
+                    <mxGeometry x="51.5" y="205" width="110" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="45" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="2" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="140" y="280" as="sourcePoint"/>
+                        <mxPoint x="220" y="280" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
