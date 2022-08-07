@@ -51,8 +51,8 @@ export const batchScopeEnd = () => {
 ```
 > 备注：batch内部不生成reaction依赖函数，但是batch/batch.scope回调函数可以触发代理对象属性的get劫持，收集当前依赖reaction
 
-- action：与batch基本相同，action，action.bound，action.scope只不过他们的回调在执行过程中触发代理属性的get劫持时，源码内部`isUntracking()`为true，不会收集依赖，一般是作为领域模型设计的action方法
-<br>
+- action：与batch基本相同，action，action.bound，action.scope只不过他们的回调在执行过程中触发代理属性的get劫持时，源码内部`isUntracking()`为true，不会收集依赖，一般是作为领域模型设计的action方法<br>
+
 - Tracker(class类)：原型track方法本身就是一个依赖函数reaction，类构造器参数为track方法的调度器scheduler，内部调度器执行之前会先dispose，然后执行scheduler，当下次代理对象属性set劫持后，由于已解绑，不会再次执行track方法（reaction依赖）了；否则我们需要手动在实例化Tracker类时的参数scheduler函数中执行track方法；如官方示例：
 ```ts
 import { observable, Tracker } from '@formily/reactive'
@@ -77,8 +77,8 @@ obs.aa = 22
 tracker.dispose()
 ```
 
-- define：手动定义领域模型，实际就是使用 observable（deep,shallow,ref,box,computed）声明一个对象的部分属性为一个Proxy代理对象，action,batch声明 对象某些属性为方法...，触发reaction依赖执行，看[官方示例](https://reactive.formilyjs.org/zh-CN/api/define)
-<br>
+- define：手动定义领域模型，实际就是使用 observable（deep,shallow,ref,box,computed）声明一个对象的部分属性为一个Proxy代理对象，action,batch声明 对象某些属性为方法...，触发reaction依赖执行，看[官方示例](https://reactive.formilyjs.org/zh-CN/api/define)<br>
+
 
 - model：与define类似，只不过一个是显式/手动定义，model是隐式定义，看[官方示例](https://reactive.formilyjs.org/zh-CN/api/model)
 
