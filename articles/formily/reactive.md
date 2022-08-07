@@ -10,10 +10,10 @@
 > 以解说为主，具体示例去看[官网api方法](https://reactive.formilyjs.org/zh-CN/api/autorun)
 
 - autorun：自动执行回调tracker，触发代理对象属性get劫持，收集依赖reaction
-  - autorun.memo：在autorun回调tracker中执行，创建根据依赖是否发生变化的持久引用数据，注意：autorun.memo中的回调不会产生新的reaction依赖函数，如果回调中触发了某个代理对象属性的get劫持，收集的依赖reaction还是在当前autorun执行中生成的，当autorun回调中某个代理属性更新时会触发autorun回调函数tracker执行.
-  <br>
-  - autorun.effect：autorun.effect回调会在autorun执行生成的reaction函数中执行，首次或者autorun.effect依赖发生变化时加入到当前事件循环的微任务队列中去执行，如果autorun收集的依赖被解绑(disponse已执行)，那么autorun.effect回调不会执行
-  <br>
+  - autorun.memo：在autorun回调tracker中执行，创建根据依赖是否发生变化的持久引用数据，注意：autorun.memo中的回调不会产生新的reaction依赖函数，如果回调中触发了某个代理对象属性的get劫持，收集的依赖reaction还是在当前autorun执行中生成的，当autorun回调中某个代理属性更新时会触发autorun回调函数tracker执行.<br>
+
+  - autorun.effect：autorun.effect回调会在autorun执行生成的reaction函数中执行，首次或者autorun.effect依赖发生变化时加入到当前事件循环的微任务队列中去执行，如果autorun收集的依赖被解绑(disponse已执行)，那么autorun.effect回调不会执行<br>
+
 - reaction：
   - 接受三个参数：计算函数，订阅函数，自定义触发订阅函数的配置对象；计算函数返回值发生变化，触发订阅函数；类似vue3中的watch方法；
   - 内部实现原理：执行依赖函数reaction调度器：依赖函数reaction执行后(内部执行计算函数，获取计算值)，再执行脏检查检测，判断是否执行action订阅函数
