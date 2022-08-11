@@ -11,3 +11,4 @@
 - [HTML拖放（Drag and Drop）入坑总结篇](./articles/drag-drop/drag-drop.md)
 - [支付宝小程序开发入门](./articles/ali-mini-programe/ali-mini-programe.md)
 - [细聊@formily/reactive](./articles/formily/reactive.md)
+- [formily设计器](./articles/formily/designer/index.md)
