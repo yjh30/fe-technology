@@ -93,9 +93,9 @@ enum Message {
 
 - 异构枚举（混用，不建议使用）
 ```ts
-enum Answer = {
+enum Answer {
   N,
-  Yes: 'yes',
+  Yes = 'yes',
 }
 ```
 
@@ -110,7 +110,7 @@ const enum Month {
 
 - 枚举成员
 ```ts
-enum Char = {
+enum Char {
   // const
   a,
   b,
